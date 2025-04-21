@@ -1,10 +1,12 @@
 from ursina import *
 from pet import VirtualPet
+from control import  movement
 
 app = Ursina()
 
-# 創建寵物
 pet = VirtualPet()
 
-EditorCamera()
+def update():
+    movement(pet, held_keys)
+    
 app.run()
