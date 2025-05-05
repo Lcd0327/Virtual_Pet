@@ -2,6 +2,7 @@ import pygame
 import os
 from pathlib import Path
 from pet import VirtualPet
+import control
 
 # 初始化 Pygame
 pygame.init()
@@ -31,14 +32,7 @@ while running:
 
     # 取得按鍵輸入
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        pet.move(-5, 0)
-    if keys[pygame.K_RIGHT]:
-        pet.move(5, 0)
-    if keys[pygame.K_UP]:
-        pet.move(0, -5)
-    if keys[pygame.K_DOWN]:
-        pet.move(0, 5)
+    control.movement(pet, keys)  # 使用控制模組來移動寵物
 
     # 繪製畫面
     screen.fill((135, 206, 250))  # 背景顏色 (淺藍色)
