@@ -1,14 +1,12 @@
-from ursina import *
-from pet import VirtualPet
+import pygame
 
-# Create an instance of VirtualPet
-
-def movement(pet, held_keys):
-    if held_keys['w']:
-        pet.y += 0.05
-    if held_keys['s']:
-        pet.y -= 0.05
-    if held_keys['a']:
-        pet.x -= 0.05
-    if held_keys['d']:
-        pet.x += 0.05
+def movement(pet, keys):
+    """根據按鍵輸入移動寵物"""
+    if keys[pygame.K_w]:
+        pet.move(0, -5)  # 向上移動
+    if keys[pygame.K_s]:
+        pet.move(0, 5)   # 向下移動
+    if keys[pygame.K_a]:
+        pet.move(-5, 0)  # 向左移動
+    if keys[pygame.K_d]:
+        pet.move(5, 0)   # 向右移動
